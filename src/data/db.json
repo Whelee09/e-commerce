@@ -1,0 +1,62 @@
+{
+    "productos": [
+      {
+        "id": 1,
+        "nombre": "Laptop Gamer",
+        "descripcion": "Laptop de alto rendimiento para gaming",
+        "precio": 1500,
+        "imagen_url": "https://img.freepik.com/foto-gratis/ejemplo-3d-pluma-que-pone-garrapatas-azules-papel_107791-15675.jpg",
+        "categoria_id": 1
+      },
+      {
+        "id": 2,
+        "nombre": "Smartphone Pro",
+        "descripcion": "Teléfono inteligente con cámara profesional",
+        "precio": 800,
+        "imagen_url": "https://www.avilatinoamerica.com/images/stories/AVI/2022/1D5.jpg",
+        "categoria_id": 2
+      },
+      {
+        "id": 3,
+        "nombre": "Auriculares Inalámbricos",
+        "descripcion": "Auriculares Bluetooth con cancelación de ruido",
+        "precio": 200,
+        "imagen_url": "https://www.avilatinoamerica.com/images/stories/AVI/2022/1D5.jpg",
+        "categoria_id": 3
+      },
+      {
+        "id": 4,
+        "nombre": "Monitor 4K",
+        "descripcion": "Monitor UHD con alta resolución para diseñadores",
+        "precio": 400,
+        "imagen_url": "https://www.sextos.win/images/imagen_01.png",
+        "categoria_id": 1
+      },
+      {
+        "id": 5,
+        "nombre": "Teclado Mecánico",
+        "descripcion": "Teclado retroiluminado para entusiastas del gaming",
+        "precio": 100,
+        "imagen_url": "https://img.freepik.com/foto-gratis/ejemplo-3d-pluma-que-pone-garrapatas-azules-papel_107791-15675.jpg",
+        "categoria_id": 4
+      },
+      {
+        "id": 6,
+        "nombre": "Silla Gamer",
+        "descripcion": "Silla ergonómica para largas sesiones de juego",
+        "precio": 250,
+        "imagen_url": "https://www.sextos.win/images/imagen_01.png",
+        "categoria_id": 5
+      }
+    ],
+    "categorias": [
+      { "id": 1, "nombre": "Electrónica" },
+      { "id": 2, "nombre": "Telefonía" },
+      { "id": 3, "nombre": "Audio" },
+      { "id": 4, "nombre": "Periféricos" },
+      { "id": 5, "nombre": "Muebles" },
+      { "id": 6, "nombre": "Fotografía" },
+      { "id": 7, "nombre": "Wearables" }
+    ]
+  }
+  

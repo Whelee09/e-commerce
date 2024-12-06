@@ -1,0 +1,35 @@
+# Node.js
+node_modules/
+dist/
+.vscode/
+*.log
+*.env
+
+# Build
+build/
+*.cache
+*.tmp
+
+# Configuración del editor
+*.code-workspace
+.idea/
+*.iml
+
+# Dependencias
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Archivos específicos del entorno
+.env
+.env.local
+.env.*.local
+
+# Directorios temporales
+temp/
+tmp/
+
+# Archivos de configuración del sistema operativo
+.DS_Store
+Thumbs.db
+
