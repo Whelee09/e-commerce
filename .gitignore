@@ -33,3 +33,9 @@ tmp/
 .DS_Store
 Thumbs.db
 
+# Ignorar imágenes
+*.png
+*.jpg
+*.jpeg
+*.gif
+
