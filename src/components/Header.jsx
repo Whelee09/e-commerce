@@ -39,7 +39,7 @@ export default function Header({ cart, removeFromCart, increaseQuantity, decreas
                         </thead>
                         <tbody>
                             {cart.map((producto) => (
-                                <tr key={producto.id}>
+                                <tr key={producto.idProducto}>
                                 <td>
                                     <img
                                     className="img-fluid"

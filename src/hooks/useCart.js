@@ -12,22 +12,99 @@ const useCart = () => {
 
   // Fetch de productos al montar el componente
   useEffect(() => {
-    fetch("http://localhost:3001/productos")
-      .then((response) => response.json())
-      .then((data) => setProductos(data))
-      .catch((error) => console.error("Error fetching productos:", error));
+    fetchProductos();
   }, []);
 
-  const deleteProducto = (id)=>{
-    console.log("eliminando producto: " + id)
-  }
+  const fetchProductos = async () => {
+    try {
+      const response = await fetch("http://localhost:8080/productos/listar");
+      if (!response.ok) {
+        throw new Error("Error fetching productos");
+      }
+      const data = await response.json();
+      setProductos(data);
+    } catch (error) {
+      console.error("Error fetching productos:", error);
+    }
+  };
   // Sincronizamos el carrito con el localStorage
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
+  const deleteProducto = async (id) => {
+    console.log("el id es " + id);
+
+    try {
+      const response = await fetch(`http://localhost:8080/productos/${id}`, {
+        method: "DELETE",
+      });
+
+      if (!response.ok) {
+        throw new Error("No se pudo eliminar el producto");
+      }
+
+      // Eliminar el producto también del estado local
+
+      setProductos((prevProductos) =>
+        prevProductos.filter((producto) => producto.idProducto !== id)
+      );
+    } catch (error) {
+      console.error("Error eliminando producto:", error);
+    }
+  };
+
+  const handleCreateProduct = async (newProduct) => {
+    try {
+      const response = await fetch('http://localhost:8080/productos', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newProduct)
+      });
+  
+      if (!response.ok) {
+        throw new Error('Error al crear el producto');
+      }
+  
+      const createdProduct = await response.json();
+      
+      // Update local state with the new product
+      setProductos([...productos, createdProduct]);
+      
+      // Optional: Show success message
+      alert('Producto creado exitosamente');
+    } catch (error) {
+      console.error('Error:', error);
+      alert('No se pudo crear el producto');
+    }
+  };
+
+  const filterByCategory = async (categoryId) => {
+    if (categoryId === null) {
+      fetchProductos();
+      return;
+    }
+
+    try {
+      const response = await fetch(
+        `http://localhost:8080/productos/listarPorCategoria/${categoryId}`
+      );
+      if (!response.ok) {
+        throw new Error("Error al filtrar productos por categoría");
+      }
+      const data = await response.json();
+      setProductos(data);
+    } catch (error) {
+      console.error("Error filtrando productos por categoría:", error);
+    }
+  };
+
   const addToCart = (item) => {
-    const itemExist = cart.findIndex((guitar) => guitar.id === item.id);
+    const itemExist = cart.findIndex(
+      (guitar) => guitar.idProducto === item.idProducto
+    );
     if (itemExist >= 0) {
       if (cart[itemExist].quantity >= MAX_ITEMS) return;
 
@@ -82,7 +159,9 @@ const useCart = () => {
     clearCart,
     isEmpty,
     cartTotal,
-    deleteProducto
+    deleteProducto,
+    filterByCategory,
+    handleCreateProduct,
   };
 };
 

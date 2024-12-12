@@ -1,6 +1,6 @@
 export default function Producto({ producto, addToCart, deleteProducto }) {
   const { nombre, descripcion, precio, imagen_url } = producto;
-
+  
   return (
     <div className="col-md-6 col-lg-4 my-4 row align-items-center">
       <div className="col-4">
@@ -20,7 +20,8 @@ export default function Producto({ producto, addToCart, deleteProducto }) {
         <button
           type="button"
           className="btn btn-danger w-100 mt-4"
-          onClick={() => deleteProducto(producto.id)}
+          
+          onClick={() => deleteProducto(producto.idProducto)}
         >Eliminar Producto</button>
       </div>
     </div>

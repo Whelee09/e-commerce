@@ -1,5 +1,7 @@
 import Header from "./components/Header";
 import Producto from "./components/Producto";
+import BotonesCategorias from "./components/BotonesCategorias";
+import ProductForm from "./components/ProductForm";
 import { useCart } from "./hooks/useCart";
 function App() {
   const {
@@ -12,13 +14,15 @@ function App() {
     addToCart,
     isEmpty,
     cartTotal,
-    deleteProducto
+    deleteProducto,
+    filterByCategory,
+    handleCreateProduct,
   } = useCart();
 
-    // Manejamos el estado de carga
-    if (productos.length === 0) {
-      return <p>Cargando productos...</p>;
-    }
+  // Manejamos el estado de carga
+  if (productos.length === 0) {
+    return <p>Cargando productos...</p>;
+  }
 
   return (
     <>
@@ -35,16 +39,28 @@ function App() {
       <main className="container-xl mt-5">
         <h2 className="text-center">Nuestra Colección</h2>
 
+        <BotonesCategorias filterByCategory={filterByCategory} />
+
         <div className="row mt-5">
           {productos.map((producto) => (
             <Producto
-              key={producto.id}
+              key={producto.idProducto}
               producto={producto}
               addToCart={addToCart}
-              deleteProducto = {deleteProducto}
+              deleteProducto={deleteProducto}
             />
           ))}
         </div>
+
+        <ProductForm
+          categories={[
+            { id: 1, nombre: "Guitarras" },
+            { id: 2, nombre: "Baterias" },
+            { id: 3, nombre: "Ukeleles" },
+            // Add more categories as needed
+          ]}
+          onSubmit={handleCreateProduct}
+        />
       </main>
 
       <footer className="bg-dark mt-5 py-5">
