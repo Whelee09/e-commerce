@@ -111,7 +111,7 @@ export default function ProductForm({ categories, onSubmit }) {
             name="descripcion"
             value={formData.descripcion}
             onChange={handleChange}
-            placeholder="Descripción detallada del producto"
+            placeholder="descripcion"
             rows="3"
             required
           ></textarea>

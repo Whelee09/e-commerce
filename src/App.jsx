@@ -52,15 +52,17 @@ function App() {
           ))}
         </div>
 
-        <ProductForm
-          categories={[
-            { id: 1, nombre: "Guitarras" },
-            { id: 2, nombre: "Baterias" },
-            { id: 3, nombre: "Ukeleles" },
-            // Add more categories as needed
-          ]}
-          onSubmit={handleCreateProduct}
-        />
+        <div className="container-xl mt-5">
+          <ProductForm
+            categories={[
+              { id: 1, nombre: "Guitarras" },
+              { id: 2, nombre: "Baterias" },
+              { id: 3, nombre: "Ukeleles" },
+              // Add more categories as needed
+            ]}
+            onSubmit={handleCreateProduct}
+          />
+        </div>
       </main>
 
       <footer className="bg-dark mt-5 py-5">
