@@ -67,10 +67,11 @@ export default function ProductForm({ categories, onSubmit }) {
   };
 
   return (
+    <div className="d-flex justify-content-center bg-light py-5">
     <div className="container mt-5">
-      <h2 className="text-center mb-4">Crear Nuevo Producto</h2>
-      <form onSubmit={handleSubmit} className="row g-3">
-        <div className="col-md-6">
+      <h2 className="text-center mb-5">Crear Nuevo Producto</h2>
+      <form onSubmit={handleSubmit} className="row g-3 mt-5">
+        <div className="col-md-6 ">
           <label htmlFor="nombre" className="form-label">Nombre del Producto</label>
           <input
             type="text"
@@ -103,7 +104,7 @@ export default function ProductForm({ categories, onSubmit }) {
           </select>
         </div>
 
-        <div className="col-12">
+        <div className="col-md-6">
           <label htmlFor="descripcion" className="form-label">Descripción</label>
           <textarea
             className="form-control"
@@ -163,12 +164,16 @@ export default function ProductForm({ categories, onSubmit }) {
           )}
         </div>
 
-        <div className="col-12">
-          <button type="submit" className="btn btn-primary w-100">
-            Crear Producto
-          </button>
+        <div className="d-flex justify-content-center">
+          <div className="col-4 mt-4 ">
+            <button type="submit" className="btn btn-danger w-100">
+              Crear Producto
+            </button>
+          </div>
         </div>
+       
       </form>
+    </div>
     </div>
   );
 }

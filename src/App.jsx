@@ -52,13 +52,12 @@ function App() {
           ))}
         </div>
 
-        <div className="container-xl mt-5">
+        <div className="container-l mt-5 ">
           <ProductForm
             categories={[
               { id: 1, nombre: "Guitarras" },
               { id: 2, nombre: "Baterias" },
               { id: 3, nombre: "Ukeleles" },
-              // Add more categories as needed
             ]}
             onSubmit={handleCreateProduct}
           />

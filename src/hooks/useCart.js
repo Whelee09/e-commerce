@@ -17,7 +17,7 @@ const useCart = () => {
 
   const fetchProductos = async () => {
     try {
-      const response = await fetch("http://localhost:8080/productos/listar");
+      const response = await fetch("http://10.14.32.214:8080/productos/listar");
       if (!response.ok) {
         throw new Error("Error fetching productos");
       }
@@ -36,7 +36,7 @@ const useCart = () => {
     console.log("el id es " + id);
 
     try {
-      const response = await fetch(`http://localhost:8080/productos/${id}`, {
+      const response = await fetch(`http://10.14.32.214:8080/productos/${id}`, {
         method: "DELETE",
       });
 
@@ -56,7 +56,7 @@ const useCart = () => {
 
   const handleCreateProduct = async (newProduct) => {
     try {
-      const response = await fetch('http://localhost:8080/productos', {
+      const response = await fetch('http://10.14.32.214:8080/productos', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -89,7 +89,7 @@ const useCart = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:8080/productos/listarPorCategoria/${categoryId}`
+        `http://10.14.32.214:8080/productos/listarPorCategoria/${categoryId}`
       );
       if (!response.ok) {
         throw new Error("Error al filtrar productos por categoría");
